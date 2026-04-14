@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+
+#optionsSlider {position:relative;top:-148px; left:0px; width:740px; height:140px; background-color:#ccc; background:url(../img/optionsSlider.png) repeat-x transparent;}
+#optionsBar { bottom:100px; left:0px; width:740px; display:block; height:18px; color:#fff; font-size:11px; font-family:Arial,sans-serif; font-weight:bold; outline:none; cursor: pointer; }

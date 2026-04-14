@@ -1,0 +1,217 @@
+@CHARSET "UTF-8";
+
+.sprice, .sprice-discount {
+    white-space: nowrap;
+}
+
+.detail .discount {
+    position: static;
+}
+
+#discountPercent { background:url('../img/discountPercent.png') no-repeat; }
+
+#discountPercentCircle { background:url('../img/discountPercentCircle.png') no-repeat; }
+
+.discountPercentOffer { background-image:url('../img/discountPercentOffer.png'); }
+
+.discountPercentCategory { top:-3px; background-image:url('../img/discountPercentOffer.png'); }
+
+.discountPercentCircleCategory { background-image:url('../img/discountPercentCircleCategory.png'); }
+
+.promotedItem span.price-discount-ie6 { color:#009000; }
+
+.promotedItem div.discountPercentPromoted { top:34px;left:6px;background-image:url('../img/discountPercentPromoted.png'); }
+
+.promotedItem div.discountPercentCirclePromoted { background-image:url('../img/discountPercentCircleCategory.png'); }
+
+.itemDescExt h3 a.discount:hover, .itemDescExt .chooseItemDescExt  a.discount:hover { background: transparent url(../img/epdiscount.png) no-repeat; }
+
+div.thumbnailBgSmall-discount-ie6 {
+    background: url("../img/thumbnailBgSmall.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 69px;
+    padding: 3px;
+    width: 69px;
+    position: relative;
+    top: -2px;
+}
+
+div.itemPrice-discount-ie6 {
+    position:relative;
+    background: url("../img/itemPrice.png") no-repeat scroll 0 0 transparent;
+    height: 33px;
+    line-height: 33px;
+    padding: 1px 1px 1px 3px;
+    width: 115px;
+    top: 0px;
+    left: 0px;
+}
+div.priceValue-discount-ie6 {
+    display: block;
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 50px;
+    color: #222222;
+    font-size: 10px;
+}
+div.price-discount-ie6 {
+    color: #00AA00;
+    display: block;
+    height: 20px;
+    left: 50px;
+    position: relative;
+    top: 17px;
+    width: 70px;
+    font: bold 14px Arial,Verdana,serif;
+}
+div.chooseItemDescExt-discount-ie6 {
+    position: relative;
+    background: url("../img/itemDescExtChoose.png") no-repeat scroll 0 0 transparent;
+    height: 60px;
+    color: #6C0404;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 33px;
+    margin-top: 10px;
+    padding-left: 11px;
+    width: 349px;
+    left: 0px;
+}
+div.thumbnailBig-discount-ie6 {
+    position: relative;
+    background: url("../img/thumbnailBig.png") no-repeat scroll 0 0 transparent;
+    height: 132px;
+    padding: 11px;
+    width: 132px;
+    top: -4px;
+    left: 0px;
+}
+
+a.addToCard-discount-ie6 {
+    display: inline;
+    float: left;
+    height: 25px;
+    margin-top: 7px;
+    width: 54px;
+    left:0;
+    margin-left: 11px;
+    margin-right:10px;
+    background: transparent url(../img/addToCarddiscountbig.png) no-repeat;
+}
+a.useDragonMark-discount-ie6 {
+    display: inline;
+    float: left;
+    height: 25px;
+    margin-top: 7px;
+    width: 54px;
+    left:0;
+    margin-left: 11px;
+    margin-right:10px;
+    background: transparent url(../img/DiscountuseDragonMark.png) no-repeat;
+}
+a.addToCard-discount-ie6:hover {background: transparent url(../img/Hover-addToCarddiscountbig.png) no-repeat;}
+a.useDragonMark-discount-ie6:hover {background: transparent url(../img/Hover-DiscountuseDragonMark.png.png) no-repeat;}
+a.purchaseInfo-discount-ie6 {
+    display: block;
+    float: left;
+    height: 25px;
+    margin-top: 7px;
+    width: 54px;
+    left:0;
+    margin-left: 0px;
+    margin-right: 0px;
+    background: url('../img/purchaseInfo-discount-big.png') no-repeat scroll 0 0 transparent;
+}
+a.purchaseInfo-discount-ie6:hover { background: url('../img/purchaseInfo-discount-hover.png') no-repeat scroll 0 0 transparent; }
+
+#bonusStartpage a.itemDetail-discount-ie6 {
+    background-image:url('../img/itemDetail-discount.png');
+    cursor: pointer;
+    height: 25px;
+    left: 72px;
+    position: absolute;
+    top: 46px;
+    width: 44px;
+}
+#bonusStartpage a.itemBuy-discount-ie6 {
+    background-image:url('../img/itemBuy-discount.png');
+    cursor: pointer;
+    height: 25px;
+    left: 119px;
+    position: absolute;
+    top: 46px;
+    width: 44px;
+}
+#bonusStartpage a.itemDetail-discount-ie6:hover { background-image:url('../img/itemDetail-discount-hover.png'); }
+#bonusStartpage a.itemBuy-discount-ie6:hover { background-image:url('../img/itemBuy-discount-hover.png'); }
+
+div.promotedItem-discount-ie6 {
+    background:url(../img/item-bg.gif) no-repeat;
+    color:#333;
+    height:136px;
+    float:left;
+    margin:0 5px;
+    padding:0 4px 4px;
+    width:244px;
+    text-align:center;
+    font-size:10px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+a.buy-discount-ie6 {
+    background:url('../img/itemBuy-discount.png') no-repeat;
+    display:inline;
+    width:44px;
+    height:25px;
+    margin:0 4px;
+    float:left;
+}
+
+a.detail-discount-ie6 {
+    background:url('../img/itemDetail-discount.png') no-repeat;
+    display:inline;
+    width:44px;
+    height:25px;
+    margin:0 4px;
+    float:left;
+}
+
+.wheelLanding div.promotedItem-discount-ie6 {
+    float:left;
+    position:relative;
+    display:block;
+    width:180px;
+    height:82px;
+    background:url('../img/promotedItem.png') no-repeat transparent;
+    margin-top:3px;
+}
+
+.wheelLanding div.promotedItem-discount-ie6.withDescription {
+    float:left;
+    position:relative;
+    display:block;
+    background:url('../img/promotedItem-withDescription.png') no-repeat transparent;
+    margin-top:3px;
+    width:377px;
+    height:82px;
+}
+
+.wheelLanding div.promotedItem-discount-ie6 div.promotedItemBtns-discount {
+    top:28px;
+    left:80px;
+}
+
+.wheelLanding div.promotedItem-discount-ie6.withDescription div.promotedItemBtns-discount {
+    top:28px;
+    left:282px;
+}
+
+.wheelLanding .promotedItem div.discountPercentPromoted {
+    position:absolute;
+    top:6px;
+    background-image:url('../img/discountPercentPromoted.png');
+}

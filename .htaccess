@@ -1,0 +1,34 @@
+RewriteEngine On
+# HTTPS değilse HTTPS'ye yönlendir
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www'li ise www'suz hale yönlendir
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# non-static dosyalar için cache sürelerini ayarla
+<filesMatch "\.(jpg|jpeg|png|gif|css|js)$">
+  Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+
+# iris sayfaları için yönlendirme
+RewriteRule ^developer(/.*)?$ iSystem/iDeveloper.php [L,QSA]
+RewriteRule ^Developer(/.*)?$ iSystem/iDeveloper.php [L,QSA]
+RewriteRule ^localapi(/.*)?$ iSystem/iPage_System.php [L,QSA]
+RewriteRule ^LocalApi(/.*)?$ iSystem/iPage_System.php [L,QSA]
+RewriteRule ^timezoneset(/.*)?$ index.php?s=timezoneset [L,QSA]
+RewriteRule ^createurl(/.*)?$ index.php?s=createurl [L,QSA]
+RewriteRule ^couponexchange(/.*)?$ index.php?s=couponexchange [L,QSA]
+
+# SEO için sayfaları yönlendirme
+RewriteRule ^home(/.*)?$ index.php?s=home [L]
+RewriteRule ^login(/.*)?$ index.php?s=login [L,QSA]
+RewriteRule ^logout(/.*)?$ index.php?s=logout [L]
+RewriteRule ^category(/.*)?$ index.php?s=category [L,QSA]
+RewriteRule ^detail(/.*)?$ index.php?s=detail [L,QSA]
+
+RewriteRule ^buylog(/.*)?$ index.php?s=user_buylog [L]
+RewriteRule ^pay(/.*)?$ index.php?s=user_pay [L]
+RewriteRule ^faq(/.*)?$ index.php?s=user_faq [L,QSA]
+RewriteRule ^paylog(/.*)?$ index.php?s=user_paylog [L,QSA]

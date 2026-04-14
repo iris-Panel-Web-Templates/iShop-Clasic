@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+
+.buy #discountPercentCircle {
+    left: 50px;
+    top: -32px;
+}
+
+div.discount, .discountPercentCircle { position:relative; }
+.detail div.discount { position:static; }
+div.itemPrice.discount { position:relative; }
+div.chooseItemDescExt.discount { position:relative; }
+.sprice.discount, .sprice-discount { margin-top:5px;color:#006600;position:relative;}
+div.price.discount { position:absolute;top:17px;left:60px;width:70px;height:20px;display:block;color:#00aa00;position:relative; }
+div.priceValue.discount { position:absolute;top:10px;left:5px;width:60px;height:20px;display:block; }
+span.price.discount { color:#009000; }
+div.thumbnailBig.discount { position:relative; }
+
+#bonusStartpage a.itemDetail.discount { background-image:url('../img/itemDetail-discount.png'); }
+#bonusStartpage a.itemBuy.discount { background-image:url('../img/itemBuy-discount.png'); }
+#bonusStartpage a.itemDetail.discount:hover { background-image:url('../img/itemDetail-discount-hover.png'); }
+#bonusStartpage a.itemBuy.discount:hover { background-image:url('../img/itemBuy-discount-hover.png'); }
+
+.bonusItemPrice.discount { color:#00aa00; }
+
+#discountPercent { position:absolute;top:6px;left:5px;width:108px;height:97px;z-index:121;background:url('../img/discountPercent.png') no-repeat; }
+.discountPercentOffer { position:absolute;z-index:15;top:5px;left:5px;width:53px;height:48px;background:url('../img/discountPercentOffer.png') no-repeat; }
+#discountPercentCircle { position:absolute;z-index:150;top:-15px;left:160px;width:32px;height:35px;display:block;background:url('../img/discountPercentCircle.png') no-repeat; }
+#oldPriceAmountDiv { position:absolute;top:-5px;left:50px;text-decoration:line-through;font-size:11px;color:#900;line-height:12px; }
+#discountOldPrice { position:absolute;top:1px;left:50px;text-decoration:line-through;font-size:11px;color:#900;line-height:12px; }
+.discountOldPriceCategory { position:absolute;top:-7px;left:54px;width:52px;height:15px;display:block;color:#000000;text-decoration:line-through;font-size:10px;color:#900; }
+.discountOldPricePromoted { position:absolute;top:28px;right:12px;width:50px;height:13px;color:#990000;text-decoration:line-through;overflow:visible; }
+.discountPercentCategory { position:absolute;top:-2px;left:-2px;width:55px;height:48px;z-index:100;background:url('../img/discountPercentOffer.png') no-repeat; }
+.discountPercentCircleCategory { position: absolute; display: block; background:url('../img/discountPercentCircleCategory.png') no-repeat; height: 35px; width: 32px; right: -10px; top: -11px; }
+.promotedItem div.discountPercentPromoted { position:absolute;top:28px;left:7px;background:url('../img/discountPercentPromoted.png') no-repeat;width:43px;height:39px;display:block; }
+.promotedItem .discountPercentCirclePromoted { position:absolute;top:-7px;right:-8px;background:url('../img/discountPercentCircleCategory.png') no-repeat;width:32px;height:35px;display:block; }
+
+.discountPercentCategory a { display:block;width:55px;height:48px; }
+.discountPercentOffer a { display:block;width:53px;height:48px; }
+.promotedItem div.discountPercentPromoted a { display:block;width:43px;height:39px; }
+
+.itemDescExt h3 a.assignMarks-discount, .itemDescExt .chooseItemDescExt  a.assignMarks-discount { background: transparent url(../img/assignMarks-discount.png) no-repeat; }
+.itemDescExt h3 a.discount, .itemDescExt .chooseItemDescExt a.discount, .buy a.discount { background: transparent url(../img/epdiscount.png) no-repeat; }
+.itemDescExt h3 a.assignMarks-discount:hover, .itemDescExt .chooseItemDescExt  a.assignMarks-discount:hover { background: transparent url(../img/assignMarks-discount-hover.png) no-repeat; }
+
+a.addToCard.discount {background: transparent url(../img/addToCarddiscountbig.png) no-repeat;display:inline;margin-left:11px;}
+a.useDragonMark.discount {background: transparent url(../img/DiscountuseDragonMark.png) no-repeat;display:inline;margin-left:11px;}
+a.addToCard.discount:hover {background: transparent url(../img/Hover-addToCarddiscountbig.png) no-repeat;}
+a.useDragonMark.discount:hover {background: transparent url(../img/Hover-DiscountuseDragonMark.png.png) no-repeat;}
+a.purchaseInfo.discount { background:url(../img/purchaseInfo.discount.png) no-repeat scroll 0 0 transparent; }
+a.purchaseInfo.discount:hover { background-image:url('../img/purchaseInfo.discount-Hover.png'); }
+
+.promotedItemBtns p.pdiscount { margin-top:5px; }
+.promotedItemBtns div.divdiscount { margin-top:-3px; }
+.promotedItem a.detail-discount {
+    display: inline;
+    float: left;
+    height: 20px;
+    margin: 0 4px;
+    width: 94px;
+    padding-top:5px;
+    background-image:url(../img/discountpromotedItem.png);
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    text-decoration:none;
+}
+.promotedItem a.detail-discount {
+    background-image:url(../img/discountpromotedItem.png);
+}
+.promotedItem a.detail-discount:hover {
+    background-image:url(../img/detail-discount-hover.png);
+}
+.promotedItem a.buy-discount {
+    display: inline;
+    float: left;
+    height: 25px;
+    margin: 0 4px;
+    width: 44px;
+    background-image:url('../img/itemBuy-discount.png');
+}
