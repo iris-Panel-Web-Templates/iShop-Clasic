@@ -1,5 +1,67 @@
+# ============================================================
+# Güvenlik
+# ============================================================
+
+# 1. Dizin listeleme kapat
+Options -Indexes
+
+# 5. Sunucu imzası gizle
+ServerSignature Off
+
+# 4. HTTP güvenlik başlıkları
+<IfModule mod_headers.c>
+    # Clickjacking: siteyi iframe içine almayı engeller
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # MIME sniffing saldırılarını engeller
+    Header always set X-Content-Type-Options "nosniff"
+    # Referer bilgisini yalnızca aynı origin'e gönderir
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # HTTPS zorunluluğunu tarayıcıya bildirir (1 yıl)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# 3. Hassas dosyalara erişimi engelle
+<FilesMatch "(^\.env|\.gitignore|composer\.json|composer\.lock)$">
+    Require all denied
+</FilesMatch>
+
+# ============================================================
+# Performans & Cache
+# ============================================================
+
+# 6. GZIP sıkıştırma
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 7. Cache — görseller ve stil dosyaları (30 gün)
+<FilesMatch "\.(jpg|jpeg|png|gif|css|js)$">
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# 7. Cache — fontlar ve ikonlar (1 yıl)
+<FilesMatch "\.(woff|woff2|ttf|eot|svg|ico)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+</FilesMatch>
+
+# ============================================================
+# Yönlendirme
+# ============================================================
+
 RewriteEngine On
-# HTTPS değilse HTTPS'ye yönlendir
+
+# 2. iSystem/ klasörüne doğrudan URL erişimini engelle
+# THE_REQUEST orijinal HTTP isteğini içerir; dahili RewriteRule yeniden yazmalarını etkilemez.
+RewriteCond %{THE_REQUEST} \s/iSystem/ [NC]
+RewriteRule ^ - [F,L]
+
+# 3. Gizli dosya ve klasörlere erişimi engelle (.git, .env vb.)
+# .well-known dizinine izin verilir (Let's Encrypt / SSL doğrulaması)
+RewriteRule (^|/)\.(?!well-known) - [F,L]
+
+# HTTPS değilse yönlendir
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -7,28 +69,28 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# non-static dosyalar için cache sürelerini ayarla
-<filesMatch "\.(jpg|jpeg|png|gif|css|js)$">
-  Header set Cache-Control "max-age=2592000, public"
-</filesMatch>
+# 8. Özel hata sayfaları
+ErrorDocument 404 /error.php
+ErrorDocument 403 /error.php
 
-# iris sayfaları için yönlendirme
-RewriteRule ^developer(/.*)?$ iSystem/iDeveloper.php [L,QSA]
-RewriteRule ^Developer(/.*)?$ iSystem/iDeveloper.php [L,QSA]
-RewriteRule ^localapi(/.*)?$ iSystem/iPage_System.php [L,QSA]
-RewriteRule ^LocalApi(/.*)?$ iSystem/iPage_System.php [L,QSA]
-RewriteRule ^timezoneset(/.*)?$ index.php?s=timezoneset [L,QSA]
-RewriteRule ^createurl(/.*)?$ index.php?s=createurl [L,QSA]
+# ============================================================
+# Sayfa Yönlendirme
+# ============================================================
+
+# 9. [NC] ile büyük/küçük harf duyarsız tek kural
+RewriteRule ^developer(/.*)?$      iSystem/iDeveloper.php   [L,QSA,NC]
+RewriteRule ^localapi(/.*)?$       iSystem/iPage_System.php [L,QSA,NC]
+RewriteRule ^timezoneset(/.*)?$    index.php?s=timezoneset  [L,QSA]
+RewriteRule ^createurl(/.*)?$      index.php?s=createurl    [L,QSA]
 RewriteRule ^couponexchange(/.*)?$ index.php?s=couponexchange [L,QSA]
 
 # SEO için sayfaları yönlendirme
-RewriteRule ^home(/.*)?$ index.php?s=home [L]
-RewriteRule ^login(/.*)?$ index.php?s=login [L,QSA]
-RewriteRule ^logout(/.*)?$ index.php?s=logout [L]
-RewriteRule ^category(/.*)?$ index.php?s=category [L,QSA]
-RewriteRule ^detail(/.*)?$ index.php?s=detail [L,QSA]
-
-RewriteRule ^buylog(/.*)?$ index.php?s=user_buylog [L]
-RewriteRule ^pay(/.*)?$ index.php?s=user_pay [L]
-RewriteRule ^faq(/.*)?$ index.php?s=user_faq [L,QSA]
-RewriteRule ^paylog(/.*)?$ index.php?s=user_paylog [L,QSA]
+RewriteRule ^home(/.*)?$     index.php?s=home       [L]
+RewriteRule ^login(/.*)?$    index.php?s=login      [L,QSA]
+RewriteRule ^logout(/.*)?$   index.php?s=logout     [L]
+RewriteRule ^category(/.*)?$ index.php?s=category   [L,QSA]
+RewriteRule ^detail(/.*)?$   index.php?s=detail     [L,QSA]
+RewriteRule ^buylog(/.*)?$   index.php?s=user_buylog [L]
+RewriteRule ^pay(/.*)?$      index.php?s=user_pay   [L]
+RewriteRule ^faq(/.*)?$      index.php?s=user_faq   [L,QSA]
+RewriteRule ^paylog(/.*)?$   index.php?s=user_paylog [L,QSA]
