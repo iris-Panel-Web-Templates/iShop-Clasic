@@ -24,7 +24,6 @@ PHP tabanlı **Metin2 oyun sunucusu** item shop sistemi.
 
 | Proje | Açıklama |
 |---|---|
-| **Web_Clasic** | Oyun portalı — sıralama, haberler, istatistikler, hesap yönetimi, rehberler |
 | **iShop_Clasic** | Item shop — kategori/ürün/paket satışı, epin, kupon, ödeme entegrasyonu |
 
 Her iki proje de bağımsız olarak çalışabilir; aynı irisPanel API sunucusunu paylaşır.
