@@ -217,3 +217,8 @@ Her iki proje de `/developer/` adresinde bir geliştirici paneli içerir.
 ```php
 const ErrorLogWrite = true;   // true: logla | false: loglama
 ```
+
+**Site Görseli:**
+
+<img width="754" height="584" alt="Screenshot_2" src="https://github.com/user-attachments/assets/ff2beb26-41e0-4467-8d3b-78dc35ae4a1c" />
+
