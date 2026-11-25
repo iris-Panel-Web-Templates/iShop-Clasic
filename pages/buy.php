@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     /** @noinspection DuplicatedCode */
     if (!isset($_GET['id'])) { die("Bir ürün seçmelisiniz."); }
     $productID = intval($_GET['id']);
@@ -7,7 +7,7 @@
     $pDesc     = iFunctions::LangDict_Get($product->desc);
     if (empty($pDesc)) { $pDesc = "<span>Ürünün açıklaması yok.</span>"; }
 
-    $princeType  = ($product->price_Type == 0) ? "EP" : "MP";
+    $priceType  = ($product->price_Type == 0) ? "EP" : "MP";
     $buyCheck = false;
     if ($product->price_Type == 0 && $_SESSION['cash']    >= $product->price_Amount){ $buyCheck = true; }
     if ($product->price_Type == 1 && $_SESSION['mileage'] >= $product->price_Amount){ $buyCheck = true; }
@@ -23,7 +23,7 @@
                     <p>
                         <span class="confirmTitle"><span style="color:red;">Satın alma başarısız!</span></span>
                         <br />Yeterli Ejderha Paranız yok!
-                        <br /><?= $_SESSION['cash']; ?> EP'niz var, öğenin maliyeti <?= $product->price_Amount;?> <?= $product->$princeType;?>.<br/>
+                        <br /><?= $_SESSION['cash']; ?> EP'niz var, öğenin maliyeti <?= $product->price_Amount;?> <?= $product->$priceType;?>.<br/>
                     </p>
                     <br class="clearfloat">
                 </div>

@@ -1,11 +1,11 @@
-<?php
+﻿<?php
 
 class Category_Class {
 
     public static function Category_Get(): array {
         if (apcu_exists(APCU_PREFIX.'Category_Time') && (apcu_fetch(APCU_PREFIX.'Category_Time') + Category_CacheTime > time())) {
             if (apcu_exists(APCU_PREFIX.'Category_Base') && apcu_exists(APCU_PREFIX.'Category_Subs')){
-                iFunctions::ConsoleLog("Categorys for CACHE.");
+                iFunctions::ConsoleLog("Categories for CACHE.");
                 return [
                     'Base'  => apcu_fetch(APCU_PREFIX.'Category_Base'),
                     'Subs'  => apcu_fetch(APCU_PREFIX.'Category_Subs')
@@ -14,22 +14,22 @@ class Category_Class {
         }
         apcu_store(APCU_PREFIX.'Category_Time', time(), 3600);
 
-        $post_url     = irisAuthUrl . "/iShop/Categorys";
+        $post_url     = irisAuthUrl . "/iShop/Categories";
         $response     = iFunctions::ApiPost($post_url, []);
         if ($response->responseCode != 0) {
-            iFunctions::ConsoleLog("Categorys Get Error: ".$response->responseMessage."\n");
+            iFunctions::ConsoleLog("Categories Get Error: ".$response->responseMessage."\n");
             apcu_store(APCU_PREFIX.'Category_Base', []);
             apcu_store(APCU_PREFIX.'Category_Subs', []);
             apcu_store(APCU_PREFIX.'Category_Time', time()-(Category_CacheTime-5));
             return [ 'Base' => [], 'Subs' => []];
         }
 
-        apcu_store(APCU_PREFIX.'Category_Base', $response->categorysBase, 3600);
-        apcu_store(APCU_PREFIX.'Category_Subs', $response->categorysSubs, 3600);
-        iFunctions::ConsoleLog("Categorys for API.");
+        apcu_store(APCU_PREFIX.'Category_Base', $response->categoriesBase, 3600);
+        apcu_store(APCU_PREFIX.'Category_Subs', $response->categoriesSubs, 3600);
+        iFunctions::ConsoleLog("Categories for API.");
         return [
-            'Base'  => $response->categorysBase,
-            'Subs'  => $response->categorysSubs
+            'Base'  => $response->categoriesBase,
+            'Subs'  => $response->categoriesSubs
         ];
     }
     public static function CategoryBase_GetName(int $categoryID): string {

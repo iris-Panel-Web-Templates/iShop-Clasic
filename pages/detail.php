@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     /** @noinspection DuplicatedCode */
 	if (!isset($_GET['id'])) { die("Bir ürün seçmelisiniz."); }
 	$productID = intval($_GET['id']);
@@ -8,7 +8,7 @@
     if (empty($pDesc)) { $pDesc = "<span>Ürünün açıklaması yok.</span>"; }
 
     $buyCheck    = false;
-    $princeType  = ($product->price_Type == 0) ? "EP" : "MP";
+    $priceType  = ($product->price_Type == 0) ? "EP" : "MP";
     $priceAmount = $product->price_Amount;
     if ($product->discount_Type == 1) { $priceAmount -= ($priceAmount/100) *$product->discount_Value; }
     $eventDiscount = irisApi::$Events->Get_ByType("ItemShop_Discount");
@@ -59,13 +59,13 @@
 				<div class="priceSelect">
                     <div class="sprice">
                         Fiyat:
-                        <span id="priceAmount"><?= number_format($priceAmount) ?></span> <?= $princeType ?>
-                        <?php if ($priceAmount != $product->price_Amount) { echo "<span class=\"spDiscount\">$product->price_Amount $princeType</span>"; } ?>
+                        <span id="priceAmount"><?= number_format($priceAmount) ?></span> <?= $priceType ?>
+                        <?php if ($priceAmount != $product->price_Amount) { echo "<span class=\"spDiscount\">$product->price_Amount $priceType</span>"; } ?>
                     </div>
                 </div>
 				<?php
                     if( $buyCheck) { echo "<a id=\"buyItemLink\" class=\"tip assignMarks\" href=\"?s=buy&id=$productID\">Satın alacağım!</a>"; }
-                    if(!$buyCheck) { echo "<a id=\"buyItemLink\" class=\"blank\" style=\"cursor: default\">Yeterli $princeType'niz yok.</a>"; }
+                    if(!$buyCheck) { echo "<a id=\"buyItemLink\" class=\"blank\" style=\"cursor: default\">Yeterli $priceType'niz yok.</a>"; }
 				?>
 				<div class="buyInfo"><b><span id="mileageAmount"><?= $_SESSION['cash'] ?></span></b> EP'nız var.</div>
                 <?php

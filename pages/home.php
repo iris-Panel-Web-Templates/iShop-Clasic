@@ -1,4 +1,4 @@
-<!--suppress CssUnusedSymbol -->
+﻿<!--suppress CssUnusedSymbol -->
 <style>
     .thumbnailBgSmall{display: table; max-height: 64px; opacity: 0.9; }
     .item:hover .thumbnailBgSmall { opacity: 1; }
@@ -22,7 +22,7 @@
                 $pDesc = iFunctions::LangDict_Get($line->desc);
                 if (empty($pDesc)) { $pDesc = "<span>Ürünün açıklaması yok.</span>"; }
 
-                $princeType  = ($line->price_Type == 0) ? "EP" : "MP";
+                $priceType  = ($line->price_Type == 0) ? "EP" : "MP";
                 $visualValue = ($line->visual_Type == 0) ? "/img/item/".$line->visual_Value.".png" : $line->visual_Value;
                 $detailUrl   = iFunctions::IsLocal() ? ("?s=detail&id=".$line->id) : ("/detail?id=".$line->id);
                 $priceAmount = $line->price_Amount;
@@ -43,7 +43,7 @@
 					</p>
 				</div>
 				<div class="purchaseOptionsWrapper">
-					<div class="itemPrice"><div class="priceValue"><?= $line->item_Count; ?> adet fiyatı:<span class="price">&nbsp;<?= (number_format($priceAmount)." ".$princeType); ?> </span></div></div>
+					<div class="itemPrice"><div class="priceValue"><?= $line->item_Count; ?> adet fiyatı:<span class="price">&nbsp;<?= (number_format($priceAmount)." ".$priceType); ?> </span></div></div>
 					<a href="<?= $detailUrl ?>" title="Daha fazla bilgi" class="purchaseInfo openinformation">Detaylar</a>
 					<br class="clearfloat" />
 				</div>
